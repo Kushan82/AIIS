@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from 'C:/Users/itzku/Desktop/website/project/src/assets/logo.png';
+import logo from '../assets/logo.png';
 
 const Footer: React.FC = () => {
   return (
