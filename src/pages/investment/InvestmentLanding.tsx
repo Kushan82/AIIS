@@ -114,14 +114,6 @@ const InvestmentLanding: React.FC = () => {
               </button>
 
               <br />
-
-              <button
-                onClick={() => navigate('/calculators')}
-                className="bg-[#cddde6] hover:bg-[#baccd5] text-gray-700 py-3 px-8 rounded-md transition-colors inline-flex items-center"
-              >
-                <LineChart className="h-5 w-5 mr-2" />
-                Try SIP & SWP Calculators
-              </button>
             </div>
           </div>
         </div>

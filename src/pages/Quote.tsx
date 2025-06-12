@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, Phone } from 'lucide-react';
-import axios from 'axios';
-
+import emailjs from '@emailjs/browser'; // ✅ make sure it's @emailjs/browser
+import whatsappIcon from '../assets/whatsapp-icon.png';
 const Quote: React.FC = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -21,14 +21,40 @@ const Quote: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
-      await axios.post('http://localhost:5000/api/quote', formData);
-      alert('Quote submitted successfully!');
+      const emailParams = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        user_email: formData.email,
+        phone: formData.phone,
+        insurance_type: formData.insuranceType,
+        additional_info: formData.additionalInfo,
+      };
+
+      await emailjs.send(
+        'service_wg58sck',       // Replace with your actual EmailJS Service ID
+        'template_enm78vd',      // Replace with your actual Template ID
+        emailParams,
+        'sBiVVAiF4_cUXw5Hm'      // Replace with your actual Public Key
+      );
+
+      alert('Thank you! Atharva Insurance will reach out to you shortly through Email or WhatsApp.');
+
+      // Clear form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        insuranceType: '',
+        additionalInfo: '',
+      });
     } catch (error: any) {
-    console.error('Submission failed:', error.response?.data || error.message);
-    alert(`Error: ${error.response?.data?.error || error.message}`);
-  }
-};
+      console.error('Email sending failed:', error);
+      alert(`Error: ${error.message || 'Email sending failed'}`);
+    }
+  };
 
   return (
     <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-white">
@@ -133,6 +159,28 @@ const Quote: React.FC = () => {
                 <Phone className="h-5 w-5 mr-2" />
                 Call +91 90048 98714
               </button>
+                            <a className='mt-4 w-full flex justify-center items-center gap-2'>OR</a>
+              <button
+  onClick={() => {
+    const message = `Hi, I would like to inquire about an insurance policy.%0A
+    Here are my details:%0A
+*First Name:* ${formData.firstName}%0A
+*Last Name:* ${formData.lastName}%0A
+*Email:* ${formData.email}%0A
+*Phone:* ${formData.phone}%0A
+*Insurance Type(Health Insurance, Motor Insurance, Commercial Insurance):* ${formData.insuranceType}%0A
+*Kindly attach previous policy:* ${formData.additionalInfo }`;
+
+    const whatsappURL = `https://wa.me/919004898714?text=${message}`;
+    window.open(whatsappURL, '_blank');
+  }}
+  className="mt-4 w-full flex justify-center items-center gap-2 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-md transition-colors"
+>
+  <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+  Chat on WhatsApp
+</button>
+
+
             </div>
           </div>
         </div>
