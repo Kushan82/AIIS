@@ -156,100 +156,95 @@ const Services: React.FC = () => {
   }, []);
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Insurance Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Insurance Services
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-            Protect what matters most with comprehensive insurance options tailored to your lifestyle.
-          </p>
-        </div>
+<section
+  id="services"
+  className="relative bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 py-20"
+>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Insurance Section */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+        Insurance Services
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+        Protect what matters most with comprehensive insurance options tailored to your lifestyle.
+      </p>
+    </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {insuranceServices.map((service, index) => (
-            <ServiceCard key={index} {...service} />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {insuranceServices.map((service, index) => (
+        <ServiceCard key={index} {...service} />
+      ))}
+    </div>
+
+    {/* Insurance Partners Carousel */}
+    <div className="mt-20 text-center">
+      <h3 className="text-xl font-semibold text-gray-700 mb-6">
+        Our Insurance Partners
+      </h3>
+      <div className="relative overflow-hidden w-full h-24">
+        <motion.div
+          className="flex gap-12 items-center min-w-[200%]"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+        >
+          {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+            <img
+              key={`${logo}-${i}`}
+              src={logo}
+              alt={`Partner ${i}`}
+              loading="lazy"
+              className="h-12 sm:h-16 md:h-20 object-contain mx-4 opacity-80 hover:opacity-100 transition-opacity"
+            />
           ))}
-        </div>
-
-        {/* Partner Logos Sliding Carousel */}
-        <div className="mt-20 text-center">
-          <h3 className="text-xl font-semibold text-gray-700 mb-6">
-            Our Insurance Partners
-          </h3>
-          <div className="relative overflow-hidden w-full h-24">
-            <motion.div
-              className="flex gap-12 items-center min-w-[200%]"
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
-            >
-              {[...partnerLogos, ...partnerLogos].map((logo, i) => (
-                <img
-                  key={`${logo}-${i}`}
-                  src={logo}
-                  alt={`Partner ${i}`}
-                  loading="lazy"
-                  className="h-12 sm:h-16 md:h-20 object-contain mx-4"
-                />
-              ))}
-            </motion.div>
-          </div>
-        </div>
+        </motion.div>
       </div>
+    </div>
+  </div>
 
-      {/* Investment Section */}
-      <div className="text-center mt-24 mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          Investment Solutions
-        </h2>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-          Strategic financial products designed to grow and preserve your wealth over time.
-        </p>
-      </div>
+  {/* Investment Section */}
+  <div className="text-center mt-24 mb-16">
+    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+      Investment Solutions
+    </h2>
+    <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+      Strategic financial products designed to grow and preserve your wealth over time.
+    </p>
+  </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {investmentServices.map((service, index) => (
-          <ServiceCard key={index} {...service} />
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-16">
+    {investmentServices.map((service, index) => (
+      <ServiceCard key={index} {...service} />
+    ))}
+  </div>
+
+  {/* AMC Logos Carousel */}
+  <div className="mt-20 text-center">
+    <h3 className="text-xl font-semibold text-gray-700 mb-6">
+      Our Mutual Fund Partners (AMCs)
+    </h3>
+    <div className="relative overflow-hidden w-full h-24">
+      <motion.div
+        className="flex gap-12 items-center min-w-[200%]"
+        animate={{ x: ['0%', '-100%'] }}
+        transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+      >
+        {[...Array(2)].flatMap(() => [
+          amc1, amc2, amc3, amc4, amc5, amc6, amc7, amc8, amc9, amc10,
+        ]).map((logo, i) => (
+          <img
+            key={`${logo}-${i}`}
+            src={logo}
+            alt={`AMC ${i + 1}`}
+            loading="lazy"
+            className="h-12 sm:h-16 md:h-20 object-contain mx-4 opacity-80 hover:opacity-100 transition-opacity"
+          />
         ))}
-      </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-      {/* AMC Logos Sliding Carousel */}
-      <div className="mt-20 text-center">
-        <h3 className="text-xl font-semibold text-gray-700 mb-6">
-          Our Mutual Fund Partners (AMCs)
-        </h3>
-        <div className="relative overflow-hidden w-full h-24">
-          <motion.div
-            className="flex gap-12 items-center min-w-[200%]"
-            animate={{ x: ['0%', '-100%'] }}
-            transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
-          >
-            {[...Array(2)].flatMap(() => [
-              amc1,
-              amc2,
-              amc3,
-              amc4,
-              amc5,
-              amc6,
-              amc7,
-              amc8,
-              amc9,
-              amc10,
-            ]).map((logo, i) => (
-              <img
-                key={`${logo}-${i}`}
-                src={logo}
-                alt={`AMC ${i + 1}`}
-                loading="lazy"
-                className="h-12 sm:h-16 md:h-20 object-contain mx-4"
-              />
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
   );
 };
 
