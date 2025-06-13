@@ -177,7 +177,15 @@ useEffect(() => {
 
 
           <div className="text-center text-gray-500 mt-4">OR</div>
-
+ <a
+                  href="https://wa.me/919004898714?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20an%20insurance%20policy."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-4 flex justify-center items-center gap-2 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-md transition-colors"
+                >
+                  <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+                  Chat on WhatsApp
+                </a>
         </form>
       </div>
 

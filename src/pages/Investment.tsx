@@ -74,7 +74,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
 
   return (
-    <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-white">
+    <section className="relative bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* EDUCATIONAL SECTION */}
         <div className="max-w-5xl mx-auto mb-16">

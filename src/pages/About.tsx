@@ -21,7 +21,7 @@ const Stat: React.FC<StatProps> = ({ icon, number, label }) => {
 
 const About: React.FC = () => {
   return (
-    <section className="pt-32 pb-16">
+    <section className="relative bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">

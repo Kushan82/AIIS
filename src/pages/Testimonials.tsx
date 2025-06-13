@@ -12,7 +12,7 @@ interface TestimonialProps {
 
 const TestimonialCard: React.FC<TestimonialProps> = ({ quote, name, title, rating, image }) => {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-xl mx-auto">
+    <div   className="relative bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 py-20">
       <div className="flex items-center mb-6">
         <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover mr-4" />
         <div>
@@ -103,7 +103,7 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section className="pt-32 pb-24 bg-blue-50 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-indigo-200 via-indigo-100 to-indigo-300 py-20 overflow-hidden">
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900">Client Testimonials</h2>
